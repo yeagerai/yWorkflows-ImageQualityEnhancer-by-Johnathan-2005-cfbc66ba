@@ -1,0 +1,7 @@
+description: The ImageQualityEnhancer component is a module in the Yeager Workflow
+  system designed to improve the quality of uploaded images. The component processes
+  an UploadedImage object, performs enhancements like contrast, brightness adjustment,
+  and noise reduction, and finally outputs an EnhancedImage object with the edited
+  image data, a list of performed edits, and metadata such as the filename, and format.
+name: ImageQualityEnhancer
+parameters: {}
