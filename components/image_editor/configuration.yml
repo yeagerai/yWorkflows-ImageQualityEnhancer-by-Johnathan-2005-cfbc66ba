@@ -1,4 +1,6 @@
 description: Applies the suggested edits from AIModel to the input image, generating
   an enhanced image preview. Outputs the enhanced image, its filename, and file format.
+input-class: Edit
 name: ImageEditor
+output-class: ImageEditorInputDict
 parameters: {}
