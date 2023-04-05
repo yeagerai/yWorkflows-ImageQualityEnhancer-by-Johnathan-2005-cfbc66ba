@@ -1,0 +1,6 @@
+description: Receives image features from FeatureExtractor, and uses a pre-trained
+  image enhancement neural network to analyze them, suggesting edits that can improve
+  the image quality. Outputs the suggested edits.
+name: AIModel
+parameters:
+  pre_trained_model_path: default_model.pth
