@@ -1,0 +1,54 @@
+yaml
+components:
+  node-0:
+    class: ImageUploader
+    module-path: components/image_uploader/image_uploader.py
+    configuration: !include components/image_uploader/configuration.yml
+  node-1:
+    class: FeatureExtractor
+    module-path: components/feature_extractor/feature_extractor.py
+    configuration: !include components/feature_extractor/configuration.yml
+  node-2:
+    class: AIModel
+    module-path: components/ai_model/ai_model.py
+    configuration: !include components/ai_model/configuration.yml
+  node-3:
+    class: ImageEditor
+    module-path: components/image_editor/image_editor.py
+    configuration: !include components/image_editor/configuration.yml
+  node-4:
+    class: ComparisonPresenter
+    module-path: components/comparison_presenter/comparison_presenter.py
+    configuration: !include components/comparison_presenter/configuration.yml
+  node-5:
+    class: ImageDownloadAdjust
+    module-path: components/image_download_adjust/image_download_adjust.py
+    configuration: !include components/image_download_adjust/configuration.yml
+
+flow-matrix:
+  [
+  [0, 1, 0, 0, 0, 0],
+  [0, 0, 1, 0, 0, 0],
+  [0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0, 1],
+  [0, 0, 0, 0, 0, 0]
+  ]
+
+mapper:
+  node-1.FeatureExtractorIn.filename: node-0.ImageUploaderOut.filename
+  node-1.FeatureExtractorIn.content: node-0.ImageUploaderOut.content
+
+  node-2.AIModelIn.features: node-1.FeatureExtractorOut.features
+
+  node-3.ImageEditorIn.edits: node-2.AIModelOut.edits
+  node-3.ImageEditorIn.filename: node-0.ImageUploaderOut.filename
+  node-3.ImageEditorIn.content: node-0.ImageUploaderOut.content
+
+  node-4.ComparisonPresenterIn.enhanced_filename: node-3.ImageEditorOut.enhanced_filename
+  node-4.ComparisonPresenterIn.enhanced_content: node-3.ImageEditorOut.enhanced_content
+  node-4.ComparisonPresenterIn.original_content: node-0.ImageUploaderOut.content
+  node-4.ComparisonPresenterIn.edits: node-2.AIModelOut.edits
+
+  node-5.ImageDownloadAdjustIn.edits_summary: node-4.ComparisonPresenterOut.edits_summary
+  node-5.ImageDownloadAdjustIn.enhanced_content: node-4.ComparisonPresenterOut.enhanced_content
