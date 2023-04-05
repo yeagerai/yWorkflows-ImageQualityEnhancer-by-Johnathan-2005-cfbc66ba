@@ -1,0 +1,9 @@
+description: Takes input as the base64 image content, processes the image and extracts
+  relevant features such as brightness, contrast, color balance, and sharpness. Outputs
+  the resulting features.
+name: FeatureExtractor
+parameters:
+  brightness_scale: 1.0
+  color_balance_scale: 1.0
+  contrast_scale: 1.0
+  sharpness_scale: 1.0
