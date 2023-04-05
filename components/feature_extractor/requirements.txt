@@ -1,0 +1,13 @@
+python
+# requirements.txt content
+os
+yaml>=0.2.5
+typing
+dotenv>=0.19.1
+fastapi>=0.68.2
+pydantic>=1.8.2
+base64
+io
+Pillow>=8.3.2
+image_processing
+core.abstract_component
