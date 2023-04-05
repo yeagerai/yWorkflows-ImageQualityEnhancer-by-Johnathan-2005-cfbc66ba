@@ -1,0 +1,5 @@
+description: Allows the user to download the enhanced image or make additional manual
+  adjustments to fine-tune the results. Outputs the final enhanced image content,
+  filename, and format.
+name: ImageDownloadAdjust
+parameters: {}
