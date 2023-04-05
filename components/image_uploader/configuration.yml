@@ -3,5 +3,7 @@ description: Provides a user interface for the user to upload an image file. Out
   The component accepts image files with common formats (JPG, PNG, GIF, etc.). Once
   the user uploads the image, it is converted to a base64-encoded string and returned
   with the filename and file format.
+input-class: ImageUploaderInputDict
 name: ImageUploader
+output-class: ImageUploaderOutputDict
 parameters: {}
