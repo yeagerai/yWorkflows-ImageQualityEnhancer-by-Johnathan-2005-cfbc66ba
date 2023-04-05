@@ -1,4 +1,6 @@
 description: Presents a side-by-side comparison of the original and enhanced images,
   along with the specific edits applied. Outputs an edit summary.
+input-class: ComparisonPresenterInputDict
 name: ComparisonPresenter
+output-class: ComparisonPresenterOutputDict
 parameters: {}
